@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plugins — Claude Code</title>
+  <meta name="description" content="Official Claude Code plugins: custom slash commands, specialized agents, hooks, and skills shipped in the claude-code repository.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>▌</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="glyph">▌&gt;</span> claude-code</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="plugins.html" class="active">Plugins</a>
+      <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener">Docs</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>Official plugins</h1>
+    <p>Plugins extend Claude Code with custom slash commands, specialized agents, hooks,
+       skills, and MCP servers. These 13 ship in the
+       <a href="https://github.com/anthropics/claude-code/tree/main/plugins" target="_blank" rel="noopener">repository's plugins directory</a>;
+       install them (and community plugins) with the <code>/plugin</code> command.</p>
+  </div>
+
+  <div class="grid" style="margin-bottom:72px">
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/agent-sdk-dev" target="_blank" rel="noopener">agent-sdk-dev</a></h3>
+      <p>Development kit for the Claude Agent SDK: interactive project setup plus agents that validate SDK apps against best practices.</p>
+      <div class="tags"><span class="tag">/new-sdk-app</span><span class="tag">2 agents</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/code-review" target="_blank" rel="noopener">code-review</a></h3>
+      <p>Automated PR review using five parallel specialized agents with confidence-based scoring to filter out false positives.</p>
+      <div class="tags"><span class="tag">/code-review</span><span class="tag">5 agents</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/commit-commands" target="_blank" rel="noopener">commit-commands</a></h3>
+      <p>Git workflow automation for committing, pushing, and creating pull requests with streamlined slash commands.</p>
+      <div class="tags"><span class="tag">/commit</span><span class="tag">/commit-push-pr</span><span class="tag">/clean_gone</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/feature-dev" target="_blank" rel="noopener">feature-dev</a></h3>
+      <p>Structured 7-phase feature development workflow with dedicated agents for codebase exploration, architecture, and review.</p>
+      <div class="tags"><span class="tag">/feature-dev</span><span class="tag">3 agents</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design" target="_blank" rel="noopener">frontend-design</a></h3>
+      <p>Auto-invoked guidance for building distinctive, production-grade frontends that avoid generic AI aesthetics.</p>
+      <div class="tags"><span class="tag">skill</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/hookify" target="_blank" rel="noopener">hookify</a></h3>
+      <p>Create custom hooks that prevent unwanted behaviors, by analyzing conversation patterns or following explicit instructions.</p>
+      <div class="tags"><span class="tag">/hookify</span><span class="tag">agent</span><span class="tag">skill</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/pr-review-toolkit" target="_blank" rel="noopener">pr-review-toolkit</a></h3>
+      <p>Six review agents specializing in comments, tests, error handling, type design, code quality, and simplification.</p>
+      <div class="tags"><span class="tag">/review-pr</span><span class="tag">6 agents</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev" target="_blank" rel="noopener">plugin-dev</a></h3>
+      <p>Toolkit for building plugins: an 8-phase guided creation workflow backed by seven expert skills and validator agents.</p>
+      <div class="tags"><span class="tag">/create-plugin</span><span class="tag">3 agents</span><span class="tag">7 skills</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/security-guidance" target="_blank" rel="noopener">security-guidance</a></h3>
+      <p>PreToolUse hook that warns about nine security patterns — command injection, XSS, eval, pickle deserialization, and more.</p>
+      <div class="tags"><span class="tag">hook</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum" target="_blank" rel="noopener">ralph-wiggum</a></h3>
+      <p>Self-referential AI loops for iterative development: Claude works the same task repeatedly until it's complete.</p>
+      <div class="tags"><span class="tag">/ralph-loop</span><span class="tag">/cancel-ralph</span><span class="tag">hook</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/explanatory-output-style" target="_blank" rel="noopener">explanatory-output-style</a></h3>
+      <p>Adds educational insights about implementation choices and codebase patterns, mimicking the deprecated Explanatory style.</p>
+      <div class="tags"><span class="tag">SessionStart hook</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/learning-output-style" target="_blank" rel="noopener">learning-output-style</a></h3>
+      <p>Interactive learning mode that asks you to write meaningful code at decision points while providing educational context.</p>
+      <div class="tags"><span class="tag">SessionStart hook</span></div>
+    </div>
+
+    <div class="card plugin-card">
+      <h3><a href="https://github.com/anthropics/claude-code/tree/main/plugins/claude-opus-4-5-migration" target="_blank" rel="noopener">claude-opus-4-5-migration</a></h3>
+      <p>Automated migration of model strings, beta headers, and prompts from Sonnet 4.x and Opus 4.1 to Opus 4.5.</p>
+      <div class="tags"><span class="tag">skill</span></div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© Anthropic · Built from the <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener">claude-code</a> repository</div>
+    <div class="links">
+      <a href="https://code.claude.com/docs/en/claude-code/plugins" target="_blank" rel="noopener">Plugin docs</a>
+      <a href="https://anthropic.com/discord" target="_blank" rel="noopener">Discord</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

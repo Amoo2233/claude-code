@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code — agentic coding in your terminal</title>
+  <meta name="description" content="Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>▌</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="glyph">▌&gt;</span> claude-code</a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="plugins.html">Plugins</a>
+      <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener">Docs</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Agentic coding, <span class="accent">in your terminal.</span></h1>
+    <p class="lede">
+      Claude Code understands your codebase and helps you code faster by executing
+      routine tasks, explaining complex code, and handling git workflows — all
+      through natural language. Use it in your terminal, your IDE, or by tagging
+      <code>@claude</code> on GitHub.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#install">Get started</a>
+      <a class="btn btn-ghost" href="changelog.html">View changelog</a>
+      <a class="btn btn-ghost" href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+
+    <div class="term" aria-hidden="true">
+      <div class="term-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="title">~/my-project — claude</span>
+      </div>
+      <div class="term-body">
+        <div><span class="prompt">$</span> <span class="cmd">claude</span></div>
+        <div><span class="claude">▌&gt;</span> <span class="cmd">fix the failing test in auth.spec.ts and commit it</span></div>
+        <div class="out">● Reading auth.spec.ts…</div>
+        <div class="out">● Found the issue: token expiry mocked with a past date</div>
+        <div class="out">● Edited src/auth/token.ts — 1 addition, 1 removal</div>
+        <div class="out">● Running npm test… <span style="color:var(--green)">✓ 42 passed</span></div>
+        <div class="out">● Committed: <span class="cmd">fix: use relative expiry in token refresh test</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="features">
+  <div class="wrap">
+    <span class="kicker">Capabilities</span>
+    <h2>Your codebase, handled end to end</h2>
+    <p class="sub">From a one-line prompt to a finished commit — Claude Code plans, edits, runs, and verifies.</p>
+
+    <div class="grid">
+      <div class="card">
+        <span class="icon">&gt;_</span>
+        <h3>Works where you work</h3>
+        <p>Run it in any terminal, in VS Code and JetBrains IDEs, on the web, or in GitHub Actions by tagging <code>@claude</code> on issues and PRs.</p>
+      </div>
+      <div class="card">
+        <span class="icon">{}</span>
+        <h3>Understands your codebase</h3>
+        <p>Searches, reads, and maps your project before making changes, so edits match your existing patterns and conventions.</p>
+      </div>
+      <div class="card">
+        <span class="icon">⎇</span>
+        <h3>Handles git workflows</h3>
+        <p>Creates branches, writes commits, resolves conflicts, and opens pull requests — driven entirely by natural language.</p>
+      </div>
+      <div class="card">
+        <span class="icon">/</span>
+        <h3>Extensible with plugins</h3>
+        <p>Add slash commands, specialized agents, hooks, and MCP servers. This repo ships 13 official plugins to start from.</p>
+      </div>
+      <div class="card">
+        <span class="icon">▶</span>
+        <h3>Runs and verifies</h3>
+        <p>Executes tests, linters, and builds, then iterates on failures until things actually pass — not just until the code looks right.</p>
+      </div>
+      <div class="card">
+        <span class="icon">⛭</span>
+        <h3>Hooks &amp; automation</h3>
+        <p>Intercept tool calls, enforce policies, and wire up session automation with configurable hooks and settings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="install">
+  <div class="wrap">
+    <span class="kicker">Install</span>
+    <h2>Up and running in one command</h2>
+    <p class="sub">Install Claude Code, then run <code>claude</code> from your project directory.</p>
+
+    <div class="install-grid">
+      <div class="install">
+        <div class="label">macOS / Linux (recommended)</div>
+        <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code><button class="copy-btn" data-copy="curl -fsSL https://claude.ai/install.sh | bash">copy</button></pre>
+      </div>
+      <div class="install">
+        <div class="label">Homebrew (macOS / Linux)</div>
+        <pre><code>brew install --cask claude-code</code><button class="copy-btn" data-copy="brew install --cask claude-code">copy</button></pre>
+      </div>
+      <div class="install">
+        <div class="label">Windows (recommended)</div>
+        <pre><code>irm https://claude.ai/install.ps1 | iex</code><button class="copy-btn" data-copy="irm https://claude.ai/install.ps1 | iex">copy</button></pre>
+      </div>
+      <div class="install">
+        <div class="label">WinGet (Windows)</div>
+        <pre><code>winget install Anthropic.ClaudeCode</code><button class="copy-btn" data-copy="winget install Anthropic.ClaudeCode">copy</button></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="community">
+  <div class="wrap">
+    <span class="kicker">Community</span>
+    <h2>Get help, share feedback</h2>
+    <p class="sub">
+      Use the <code>/bug</code> command to report issues directly within Claude Code, file a
+      <a href="https://github.com/anthropics/claude-code/issues" target="_blank" rel="noopener">GitHub issue</a>,
+      or join the <a href="https://anthropic.com/discord" target="_blank" rel="noopener">Claude Developers Discord</a>
+      to connect with other developers.
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© Anthropic · Built from the <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener">claude-code</a> repository</div>
+    <div class="links">
+      <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener">Documentation</a>
+      <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener">Data usage</a>
+      <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

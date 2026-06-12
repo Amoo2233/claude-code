@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — Claude Code</title>
+  <meta name="description" content="Release notes for Claude Code, rendered live from CHANGELOG.md.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>▌</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="glyph">▌&gt;</span> claude-code</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="changelog.html" class="active">Changelog</a>
+      <a href="plugins.html">Plugins</a>
+      <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener">Docs</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>Changelog</h1>
+    <p>Every Claude Code release, rendered live from
+      <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG.md</a>.
+      Search by version number or keyword.</p>
+  </div>
+
+  <div class="toolbar">
+    <input type="search" id="search" class="search" placeholder="Filter releases… (e.g. 2.1.175, hooks, /model)" autocomplete="off">
+    <span class="result-count" id="count"></span>
+  </div>
+
+  <div id="releases">
+    <div class="status">Loading changelog…</div>
+  </div>
+
+  <button class="btn btn-ghost load-more" id="load-more" hidden>Show more releases</button>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© Anthropic · Built from the <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener">claude-code</a> repository</div>
+    <div class="links">
+      <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener">Documentation</a>
+      <a href="https://anthropic.com/discord" target="_blank" rel="noopener">Discord</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/changelog.js"></script>
+</body>
+</html>
