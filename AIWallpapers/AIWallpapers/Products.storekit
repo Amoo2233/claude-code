@@ -1,0 +1,71 @@
+{
+  "identifier" : "8F3A2C10-5D44-4E2B-9C1A-7B2E91D4C033",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "19.99",
+      "familyShareable" : false,
+      "internalID" : "1A2B3C4D",
+      "localizations" : [
+        {
+          "description" : "Unlock 4K Ultra HD downloads forever.",
+          "displayName" : "Premium Lifetime",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.aiwallpapers.premium.lifetime",
+      "referenceName" : "Premium Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "9E8D7C6B",
+      "localizations" : [
+
+      ],
+      "name" : "Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "5E6F7A8B",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlock 4K Ultra HD downloads.",
+              "displayName" : "Premium Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.aiwallpapers.premium.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Premium Monthly",
+          "subscriptionGroupID" : "9E8D7C6B",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
