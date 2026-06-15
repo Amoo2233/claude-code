@@ -41,6 +41,19 @@ Expected output is a short, model-generated sentence, for example:
 AI learns patterns from data to make predictions.
 ```
 
+## Bonus: video generation with Veo
+
+[`generate_video.py`](./generate_video.py) shows how to generate a video with
+Google's Veo model, polling the long-running operation until the clip is ready
+and saving it to `realism_example.mp4`:
+
+```bash
+python generate_video.py
+```
+
+Video generation takes a few minutes, and Veo access may require a paid tier or
+allowlisting on your API key.
+
 ## Notes
 
 - The example uses the `gemini-2.5-flash` model. Swap in any model your key has
