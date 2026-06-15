@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nova — a modern starter website with a clean, responsive design, dark mode, and smooth animations." />
+  <meta name="theme-color" content="#0b0f17" />
+  <title>Nova · Build something modern</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Nova home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Nova</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#showcase">Showcase</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-13v2m0 14v2M4 12H2m20 0h-2M5.6 5.6 4.2 4.2m15.6 1.4 1.4-1.4M5.6 18.4l-1.4 1.4m15.6-1.4 1.4 1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn-primary" href="#pricing">Get started</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#features">Features</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#pricing">Get started</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow reveal" data-reveal>✨ Now in public beta</p>
+        <h1 class="hero-title reveal" data-reveal>
+          Ship a <span class="gradient-text">modern</span> website<br />without the busywork.
+        </h1>
+        <p class="hero-sub reveal" data-reveal>
+          Nova is a lightning-fast starter that pairs a refined design system with
+          accessible components — responsive, theme-aware, and ready the moment you load it.
+        </p>
+        <div class="hero-cta reveal" data-reveal>
+          <a class="btn btn-primary btn-lg" href="#pricing">Start free</a>
+          <a class="btn btn-ghost btn-lg" href="#showcase">See it in action →</a>
+        </div>
+        <div class="hero-stats reveal" data-reveal>
+          <div><strong data-count="120">0</strong><span>k+ downloads</span></div>
+          <div><strong data-count="99">0</strong><span>% Lighthouse</span></div>
+          <div><strong data-count="40">0</strong><span>ms first paint</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted by / marquee -->
+    <section class="marquee" aria-label="Trusted by teams">
+      <div class="marquee-track">
+        <span>Acme</span><span>Globex</span><span>Umbrella</span><span>Initech</span>
+        <span>Hooli</span><span>Stark</span><span>Wayne</span><span>Wonka</span>
+        <span>Acme</span><span>Globex</span><span>Umbrella</span><span>Initech</span>
+        <span>Hooli</span><span>Stark</span><span>Wayne</span><span>Wonka</span>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head reveal" data-reveal>
+          <p class="eyebrow">Why Nova</p>
+          <h2>Everything you need, nothing you don't</h2>
+          <p class="section-lead">A thoughtful set of building blocks so you can focus on what makes your product unique.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card reveal" data-reveal>
+            <div class="card-icon">⚡</div>
+            <h3>Blazing fast</h3>
+            <p>Zero build step and no heavy frameworks. Pure HTML, CSS, and a sprinkle of vanilla JS that loads instantly.</p>
+          </article>
+          <article class="card reveal" data-reveal>
+            <div class="card-icon">🎨</div>
+            <h3>Design system</h3>
+            <p>Consistent spacing, type scale, and color tokens powered by CSS custom properties you can theme in seconds.</p>
+          </article>
+          <article class="card reveal" data-reveal>
+            <div class="card-icon">🌗</div>
+            <h3>Dark & light</h3>
+            <p>A polished theme toggle that respects system preference and remembers each visitor's choice.</p>
+          </article>
+          <article class="card reveal" data-reveal>
+            <div class="card-icon">📱</div>
+            <h3>Fully responsive</h3>
+            <p>Looks sharp from a 320px phone to an ultrawide monitor, with a fluid layout and tasteful breakpoints.</p>
+          </article>
+          <article class="card reveal" data-reveal>
+            <div class="card-icon">♿</div>
+            <h3>Accessible</h3>
+            <p>Semantic landmarks, keyboard-friendly navigation, focus styles, and reduced-motion support out of the box.</p>
+          </article>
+          <article class="card reveal" data-reveal>
+            <div class="card-icon">🧩</div>
+            <h3>Composable</h3>
+            <p>Drop-in sections and components you can rearrange like building blocks to match your story.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase -->
+    <section class="section showcase" id="showcase">
+      <div class="container showcase-grid">
+        <div class="showcase-copy reveal" data-reveal>
+          <p class="eyebrow">Showcase</p>
+          <h2>A canvas that adapts to your brand</h2>
+          <p class="section-lead">Swap a few color tokens and the entire experience transforms — gradients, shadows, and accents update everywhere at once.</p>
+          <ul class="check-list">
+            <li>Token-driven theming</li>
+            <li>Smooth scroll-reveal animations</li>
+            <li>Animated counters & marquee</li>
+            <li>Mobile menu with focus management</li>
+          </ul>
+          <a class="btn btn-primary" href="#pricing">Make it yours</a>
+        </div>
+        <div class="showcase-visual reveal" data-reveal aria-hidden="true">
+          <div class="mock-window">
+            <div class="mock-bar"><span></span><span></span><span></span></div>
+            <div class="mock-body">
+              <div class="mock-line w-60"></div>
+              <div class="mock-line w-90"></div>
+              <div class="mock-chips">
+                <div class="mock-chip"></div><div class="mock-chip"></div><div class="mock-chip"></div>
+              </div>
+              <div class="mock-block"></div>
+              <div class="mock-line w-75"></div>
+              <div class="mock-line w-40"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head reveal" data-reveal>
+          <p class="eyebrow">Pricing</p>
+          <h2>Simple, transparent plans</h2>
+          <p class="section-lead">Start free. Upgrade when you're ready. Cancel anytime.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card reveal" data-reveal>
+            <h3>Starter</h3>
+            <p class="price"><span>$0</span>/mo</p>
+            <p class="price-note">For side projects & demos</p>
+            <ul class="check-list">
+              <li>1 project</li>
+              <li>Community support</li>
+              <li>Core components</li>
+            </ul>
+            <a class="btn btn-ghost" href="#">Choose Starter</a>
+          </article>
+
+          <article class="price-card featured reveal" data-reveal>
+            <div class="badge">Most popular</div>
+            <h3>Pro</h3>
+            <p class="price"><span>$19</span>/mo</p>
+            <p class="price-note">For growing teams</p>
+            <ul class="check-list">
+              <li>Unlimited projects</li>
+              <li>Priority support</li>
+              <li>Advanced components</li>
+              <li>Custom themes</li>
+            </ul>
+            <a class="btn btn-primary" href="#">Choose Pro</a>
+          </article>
+
+          <article class="price-card reveal" data-reveal>
+            <h3>Enterprise</h3>
+            <p class="price"><span>Custom</span></p>
+            <p class="price-note">For large organizations</p>
+            <ul class="check-list">
+              <li>SSO & audit logs</li>
+              <li>Dedicated manager</li>
+              <li>SLA & onboarding</li>
+            </ul>
+            <a class="btn btn-ghost" href="#">Contact sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section-head reveal" data-reveal>
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions, answered</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal" data-reveal>
+            <summary>Do I need a build tool?<span class="chev" aria-hidden="true">+</span></summary>
+            <p>No. Nova is plain HTML, CSS, and vanilla JavaScript. Open <code>index.html</code> in any browser and it just works.</p>
+          </details>
+          <details class="faq-item reveal" data-reveal>
+            <summary>How do I change the colors?<span class="chev" aria-hidden="true">+</span></summary>
+            <p>Edit the CSS custom properties at the top of <code>styles.css</code>. Every component reads from those tokens, so a few edits restyle the whole site.</p>
+          </details>
+          <details class="faq-item reveal" data-reveal>
+            <summary>Is it accessible?<span class="chev" aria-hidden="true">+</span></summary>
+            <p>Yes — semantic landmarks, keyboard navigation, visible focus states, ARIA where needed, and <code>prefers-reduced-motion</code> support.</p>
+          </details>
+          <details class="faq-item reveal" data-reveal>
+            <summary>Can I use it commercially?<span class="chev" aria-hidden="true">+</span></summary>
+            <p>Absolutely. Use it as the foundation for landing pages, portfolios, docs, or product sites.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+      <div class="container cta-inner reveal" data-reveal>
+        <h2>Ready to build something modern?</h2>
+        <p>Join thousands of makers shipping faster with Nova.</p>
+        <form class="cta-form" id="ctaForm" novalidate>
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+          <button class="btn btn-primary" type="submit">Get started free</button>
+        </form>
+        <p class="cta-msg" id="ctaMsg" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Nova</span>
+        </a>
+        <p>A modern starter for the web.</p>
+      </div>
+      <nav aria-label="Product">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#showcase">Showcase</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <nav aria-label="Company">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+      </nav>
+      <nav aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> Nova. Crafted with care.</p>
+      <button class="btn btn-ghost btn-sm" id="toTop" type="button">Back to top ↑</button>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
