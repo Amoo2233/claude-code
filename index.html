@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nova — Ship a modern website</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#c4abff",
+                      "surface-dark": "#1e293b",
+                      "on-tertiary-fixed-variant": "#723600",
+                      "primary": "#adc6ff",
+                      "surface-variant": "#31353e",
+                      "on-tertiary": "#502400",
+                      "background": "#0f131c",
+                      "tertiary": "#ffb786",
+                      "inverse-surface": "#dfe2ee",
+                      "on-tertiary-container": "#461f00",
+                      "on-background": "#dfe2ee",
+                      "on-error": "#690005",
+                      "surface-container-highest": "#31353e",
+                      "border-light": "#e2e8f0",
+                      "secondary-container": "#571bc1",
+                      "surface-container-lowest": "#0a0e16",
+                      "primary-container": "#4d8eff",
+                      "outline": "#8c909f",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed": "#311400",
+                      "surface-light": "#f1f5f9",
+                      "on-secondary": "#3c0091",
+                      "accent-glow": "rgba(59, 130, 246, 0.15)",
+                      "on-surface": "#dfe2ee",
+                      "on-surface-variant": "#c2c6d6",
+                      "tertiary-container": "#df7412",
+                      "secondary-fixed-dim": "#d0bcff",
+                      "on-primary": "#002e6a",
+                      "surface-dim": "#0f131c",
+                      "secondary": "#d0bcff",
+                      "inverse-on-surface": "#2c3039",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed": "#23005c",
+                      "surface-container-low": "#181c24",
+                      "on-secondary-fixed-variant": "#5516be",
+                      "tertiary-fixed-dim": "#ffb786",
+                      "primary-fixed-dim": "#adc6ff",
+                      "surface-container": "#1c2028",
+                      "inverse-primary": "#005ac2",
+                      "text-muted-light": "#64748b",
+                      "on-primary-fixed-variant": "#004395",
+                      "surface": "#0f131c",
+                      "tertiary-fixed": "#ffdcc6",
+                      "surface-tint": "#adc6ff",
+                      "on-error-container": "#ffdad6",
+                      "surface-bright": "#353942",
+                      "on-primary-container": "#00285d",
+                      "secondary-fixed": "#e9ddff",
+                      "border-dark": "#334155",
+                      "text-muted-dark": "#94a3b8",
+                      "surface-container-high": "#262a33",
+                      "outline-variant": "#424754",
+                      "primary-hover": "#2563eb",
+                      "on-primary-fixed": "#001a42",
+                      "primary-fixed": "#d8e2ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "hero-v-padding": "160px",
+                      "container-max": "1200px",
+                      "grid-gap-md": "2rem",
+                      "card-padding": "2.5rem",
+                      "grid-gap-lg": "4rem",
+                      "section-v-padding": "100px",
+                      "gutter": "1.5rem"
+              },
+              "fontFamily": {
+                      "display-hero-mobile": ["Sora"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Sora"],
+                      "label-md": ["Inter"],
+                      "headline-lg": ["Sora"],
+                      "display-hero": ["Sora"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "display-hero-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-sm": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-md": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-hero": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #adc6ff 0%, #d0bcff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-background/80 nav-blur border-b border-outline-variant/20 h-20">
+<nav class="max-w-[1200px] mx-auto px-8 h-full flex justify-between items-center">
+<div class="flex items-center gap-12">
+<a class="font-headline-md text-headline-md font-bold text-on-background tracking-tighter" href="#">Nova</a>
+<ul class="hidden md:flex gap-8">
+<li><a class="font-label-md text-label-md text-primary font-bold" href="#features">Features</a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#showcase">Showcase</a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#pricing">Pricing</a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#faq">FAQ</a></li>
+</ul>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-label-md text-label-md hover:opacity-80 active:scale-95 transition-all">
+                    Get started
+                </button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-hero-v-padding pb-section-v-padding overflow-hidden">
+<div class="absolute inset-0 hero-glow -z-10"></div>
+<div class="max-w-[1200px] mx-auto px-8 text-center scroll-reveal">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/20 border border-secondary/30 mb-8">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Public Beta</span>
+</div>
+<h1 class="font-display-hero text-display-hero mb-6 tracking-tight">
+                    Ship a <span class="gradient-text">modern website</span><br/>at light speed
+                </h1>
+<p class="font-body-lg text-body-lg text-text-muted-dark max-w-2xl mx-auto mb-10">
+                    The ultra-high performance framework built for technical teams. Automate your DX and deliver pixel-perfect experiences with zero configuration.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+<button class="bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-container px-8 py-4 rounded-lg font-label-md text-label-md hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all flex items-center justify-center gap-2">
+                        Start building now <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-outline-variant/30 hover:border-primary/50 text-on-surface px-8 py-4 rounded-lg font-label-md text-label-md transition-all">
+                        View documentation
+                    </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl mx-auto pt-10 border-t border-outline-variant/10">
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-on-background">120k+</div>
+<div class="font-label-sm text-label-sm text-text-muted-dark uppercase mt-1">Downloads</div>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-on-background">99%</div>
+<div class="font-label-sm text-label-sm text-text-muted-dark uppercase mt-1">Lighthouse</div>
+</div>
+<div class="col-span-2 md:col-span-1">
+<div class="font-headline-lg text-headline-lg font-bold text-on-background">40ms</div>
+<div class="font-label-sm text-label-sm text-text-muted-dark uppercase mt-1">First Paint</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee Section -->
+<section class="py-12 border-y border-outline-variant/10 overflow-hidden bg-surface-container-lowest/50">
+<div class="marquee-track gap-16 md:gap-32 items-center opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">ACME CORP</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">GLOBEX</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">SOYLENT</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">INITECH</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">UMBRELLA</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">OSCORP</span>
+<!-- Duplicate for seamless scroll -->
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">ACME CORP</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">GLOBEX</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">SOYLENT</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">INITECH</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">UMBRELLA</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">OSCORP</span>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="py-section-v-padding px-8" id="features">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-16 scroll-reveal">
+<h2 class="font-headline-lg text-headline-lg mb-4">Built for performance</h2>
+<p class="font-body-md text-body-md text-text-muted-dark max-w-xl mx-auto">Everything you need to ship production-ready applications with zero friction.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-grid-md">
+<!-- Speed -->
+<div class="glass-card p-card-padding rounded-[20px] scroll-reveal hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Instant Load</h3>
+<p class="text-text-muted-dark">Proprietary static generation that delivers content to users in under 100ms globally.</p>
+</div>
+<!-- Design System -->
+<div class="glass-card p-card-padding rounded-[20px] scroll-reveal md:col-span-2 hover:-translate-y-2 transition-transform duration-300">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/20 flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined">category</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Unified Design System</h3>
+<p class="text-text-muted-dark">A robust set of tokens and components that scale from small prototypes to enterprise dashboards.</p>
+</div>
+<div class="flex-1 bg-surface-container-high rounded-xl p-4 border border-outline-variant/10 min-h-[160px]">
+<div class="flex gap-2 mb-4">
+<div class="h-3 w-12 bg-primary/20 rounded"></div>
+<div class="h-3 w-16 bg-secondary/20 rounded"></div>
+</div>
+<div class="space-y-2">
+<div class="h-2 w-full bg-outline-variant/20 rounded"></div>
+<div class="h-2 w-[80%] bg-outline-variant/20 rounded"></div>
+<div class="h-2 w-[90%] bg-outline-variant/20 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Responsiveness -->
+<div class="glass-card p-card-padding rounded-[20px] scroll-reveal md:col-span-2 hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/20 flex items-center justify-center text-tertiary mb-6">
+<span class="material-symbols-outlined">devices</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Responsive by Design</h3>
+<p class="text-text-muted-dark">Smart layouts that automatically adapt to any viewport, from mobile screens to ultra-wide displays.</p>
+</div>
+<!-- Accessibility -->
+<div class="glass-card p-card-padding rounded-[20px] scroll-reveal hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 rounded-xl bg-error/20 flex items-center justify-center text-error mb-6">
+<span class="material-symbols-outlined">accessibility</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Fully Accessible</h3>
+<p class="text-text-muted-dark">WAI-ARIA compliant components out of the box, ensuring inclusivity for all your users.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Showcase Section -->
+<section class="py-section-v-padding px-8 bg-surface-container-lowest" id="showcase">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-grid-lg items-center">
+<div class="scroll-reveal">
+<h2 class="font-headline-lg text-headline-lg mb-6">Crafted for clarity</h2>
+<p class="font-body-lg text-body-lg text-text-muted-dark mb-8">
+                        Our platform provides a visual interface for complex logic. Design, test, and deploy without ever leaving your flow state.
+                    </p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-on-surface">Real-time collaborative editing</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-on-surface">Git-based version control</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="text-on-surface">Automated CDN distribution</span>
+</li>
+</ul>
+</div>
+<div class="scroll-reveal">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative bg-surface-container rounded-xl border border-outline-variant/30 overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+<div class="h-10 bg-surface-container-highest flex items-center px-4 gap-2 border-b border-outline-variant/20">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error/50"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary/50"></div>
+<div class="w-3 h-3 rounded-full bg-primary/50"></div>
+</div>
+<div class="mx-auto w-40 h-4 bg-outline-variant/20 rounded-full"></div>
+</div>
+<div class="p-8 aspect-video flex items-center justify-center">
+<div class="grid grid-cols-3 gap-4 w-full">
+<div class="h-32 rounded-lg bg-surface-container-high animate-pulse"></div>
+<div class="h-32 rounded-lg bg-primary-container/20 border border-primary/20"></div>
+<div class="h-32 rounded-lg bg-surface-container-high animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-section-v-padding px-8" id="pricing">
+<div class="max-w-[1200px] mx-auto text-center mb-16 scroll-reveal">
+<h2 class="font-headline-lg text-headline-lg mb-4">Simple, transparent pricing</h2>
+<p class="text-text-muted-dark">No hidden fees. Scale as you grow.</p>
+</div>
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-grid-md">
+<!-- Starter -->
+<div class="glass-card p-8 rounded-[20px] scroll-reveal">
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted-dark mb-4">Starter</div>
+<div class="mb-6">
+<span class="text-4xl font-bold">$0</span>
+<span class="text-text-muted-dark">/mo</span>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">done</span> 5 projects
+                        </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">done</span> 1GB Storage
+                        </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">done</span> Community Support
+                        </li>
+</ul>
+<button class="w-full border border-outline-variant text-on-surface py-3 rounded-lg hover:bg-surface-container transition-colors">Choose Starter</button>
+</div>
+<!-- Pro -->
+<div class="relative glass-card p-8 rounded-[20px] border-primary/40 scroll-reveal shadow-[0_20px_40px_rgba(59,130,246,0.1)]">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Most Popular</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-4">Professional</div>
+<div class="mb-6">
+<span class="text-4xl font-bold">$49</span>
+<span class="text-text-muted-dark">/mo</span>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary">done</span> Unlimited projects
+                        </li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary">done</span> 50GB Storage
+                        </li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary">done</span> 24/7 Priority Support
+                        </li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary">done</span> Custom domains
+                        </li>
+</ul>
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-lg hover:opacity-90 transition-all font-bold">Get Pro Today</button>
+</div>
+<!-- Enterprise -->
+<div class="glass-card p-8 rounded-[20px] scroll-reveal">
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted-dark mb-4">Enterprise</div>
+<div class="mb-6">
+<span class="text-4xl font-bold">Custom</span>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">done</span> Dedicated Clusters
+                        </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">done</span> SSO &amp; SAML
+                        </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">done</span> SLA Guarantee
+                        </li>
+</ul>
+<button class="w-full border border-outline-variant text-on-surface py-3 rounded-lg hover:bg-surface-container transition-colors">Contact Sales</button>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-v-padding px-8 bg-surface-container-lowest/30" id="faq">
+<div class="max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-12 text-center scroll-reveal">Questions? We have answers.</h2>
+<div class="space-y-4 scroll-reveal">
+<details class="group bg-surface-container rounded-xl border border-outline-variant/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-headline-md text-body-md font-semibold">How secure is Nova?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted-dark">
+                            Nova utilizes industry-standard AES-256 encryption and undergoes quarterly third-party security audits.
+                        </div>
+</details>
+<details class="group bg-surface-container rounded-xl border border-outline-variant/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-headline-md text-body-md font-semibold">Can I migrate from React?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted-dark">
+                            Yes, our CLI includes a 'nova-migrate' command that automatically converts most React functional components to Nova native formats.
+                        </div>
+</details>
+<details class="group bg-surface-container rounded-xl border border-outline-variant/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-headline-md text-body-md font-semibold">Do you offer educational discounts?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted-dark">
+                            Absolutely. Students and educators get 50% off the Pro plan with a valid .edu email address.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-v-padding px-8">
+<div class="max-w-[1200px] mx-auto">
+<div class="bg-gradient-to-br from-primary/20 via-surface-container to-secondary/20 rounded-[40px] p-12 md:p-20 text-center border border-outline-variant/10 relative overflow-hidden scroll-reveal">
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-6">Ready to ship?</h2>
+<p class="font-body-lg text-body-lg text-text-muted-dark mb-10 max-w-xl mx-auto">Join over 120,000 developers building the future of the web.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Subscribed!')">
+<input class="flex-1 bg-surface-container-high border border-outline-variant/30 rounded-lg px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your email" required="" type="email"/>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all" type="submit">
+                                Join the beta
+                            </button>
+</form>
+<p class="mt-6 text-xs text-text-muted-dark">No credit card required. Cancel anytime.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/10 py-section-v-padding px-8">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-grid-lg mb-16">
+<div class="space-y-6">
+<a class="font-headline-md text-headline-md font-bold text-on-background" href="#">Nova</a>
+<p class="font-label-sm text-label-sm text-text-muted-dark leading-relaxed">
+                    © 2024 Nova. All rights reserved. Built for speed.
+                </p>
+<div class="flex gap-4">
+<a class="text-text-muted-dark hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-text-muted-dark hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">chat</span></a>
+<a class="text-text-muted-dark hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">code</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.05em] mb-6">Product</h4>
+<ul class="space-y-4 font-label-sm text-label-sm">
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">Showcase</a></li>
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">Documentation</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.05em] mb-6">Company</h4>
+<ul class="space-y-4 font-label-sm text-label-sm">
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">About</a></li>
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.05em] mb-6">Legal</h4>
+<ul class="space-y-4 font-label-sm text-label-sm">
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-text-muted-dark hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><button class="text-primary font-bold hover:underline" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to top</button></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>
+        // Theme Toggling
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            themeToggle.innerHTML = isDark
+                ? '<span class="material-symbols-outlined">dark_mode</span>'
+                : '<span class="material-symbols-outlined">light_mode</span>';
+        });
+
+        // Scroll Reveal Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add glass header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+</body>
+</html>
