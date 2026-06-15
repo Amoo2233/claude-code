@@ -1,0 +1,13 @@
+{
+  "name": "google-gemini-quickstart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal Google Gemini API quickstart using @google/genai",
+  "type": "module",
+  "scripts": {
+    "start": "node quickstart.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0"
+  }
+}
